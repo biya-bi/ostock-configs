@@ -10,3 +10,5 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     waitTimeInMsWhenSyncEmpty: 5
+    evictionIntervalTimerInMs: 60000
+    renewalPercentThreshold: 0.85
