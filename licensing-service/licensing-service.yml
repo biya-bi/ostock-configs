@@ -27,7 +27,7 @@ management:
 eureka:
   instance:
     preferIpAddress: true
-    leaseRenewalIntervalInSeconds: 30
+    leaseRenewalIntervalInSeconds: 20
   client:
     registerWithEureka: true
     fetchRegistry: true
