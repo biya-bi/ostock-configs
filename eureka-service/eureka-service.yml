@@ -3,6 +3,7 @@ server:
 eureka:
   instance:
     hostname: localhost
+    leaseExpirationDurationInSeconds: 90
   client:
     registerWithEureka: false
     fetchRegistry: false
@@ -12,3 +13,6 @@ eureka:
     waitTimeInMsWhenSyncEmpty: 5
     evictionIntervalTimerInMs: 60000
     renewalPercentThreshold: 0.85
+    expectedClientRenewalIntervalSeconds: 30
+    renewalThresholdUpdateIntervalMs: 900000
+    enableSelfPreservation: true
