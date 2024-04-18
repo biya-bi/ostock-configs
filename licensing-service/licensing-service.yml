@@ -59,4 +59,10 @@ resilience4j:
         limitForPeriod: 5
         limitRefreshPeriod: 15s
         timeoutDuration: 1s
-  
+  retry:
+    instances:
+      organizationFeignClient:
+        maxAttempts: 3
+        waitDuration: 10s
+        retry-exceptions:
+          - feign.RetryableException
