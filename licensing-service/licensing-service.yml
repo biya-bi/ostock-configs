@@ -52,4 +52,11 @@ resilience4j:
         baseConfig: default
       organizationFeignClient:
         baseConfig: default
+  ratelimiter:
+    instances:
+      licenseService:
+        registerHealthIndicator: true
+        limitForPeriod: 5
+        limitRefreshPeriod: 15s
+        timeoutDuration: 1s
   
