@@ -7,3 +7,10 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8070/eureka}
+spring:
+  cloud:
+    gateway:
+        discovery:
+          locator:
+            enabled: true
+            lowerCaseServiceId: true
