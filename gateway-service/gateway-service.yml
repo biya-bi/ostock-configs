@@ -1,3 +1,22 @@
+spring:
+  cloud:
+    gateway:
+        discovery:
+          locator:
+            enabled: true
+            lowerCaseServiceId: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      endpoint:
+    gateway:
+      enabled: true
 eureka:
   instance:
     preferIpAddress: true
@@ -7,10 +26,3 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8070/eureka}
-spring:
-  cloud:
-    gateway:
-        discovery:
-          locator:
-            enabled: true
-            lowerCaseServiceId: true
