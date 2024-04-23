@@ -1,10 +1,19 @@
 spring:
   cloud:
     gateway:
-        discovery:
-          locator:
-            enabled: true
-            lowerCaseServiceId: true
+        routes:
+        - id: licensing-service
+          uri: lb://licensing-service
+          predicates:
+          - Path=/api/v1/license/**
+          filters:
+          - RewritePath=/api/(?<path>.*), /$\{path}
+        - id: organization-service
+          uri: lb://organization-service
+          predicates:
+          - Path=/api/v1/organization/**
+          filters:
+          - RewritePath=/api/(?<path>.*), /$\{path}
 management:
   endpoints:
     web:
