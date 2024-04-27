@@ -8,12 +8,14 @@ spring:
           - Path=/api/v1/license/**
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
+          - RemoveRequestHeader=Cookie, Set-Cookie
         - id: organization-service
           uri: lb://organization-service
           predicates:
           - Path=/api/v1/organization/**
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
+          - RemoveRequestHeader=Cookie, Set-Cookie
 management:
   endpoints:
     web:
