@@ -21,7 +21,7 @@ spring:
           predicates:
           - Path=/api/v1/config/**
           filters:
-          - RewritePath=/api/(?<path>.*), /$\{path}
+          - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
 management:
   endpoints:

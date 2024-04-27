@@ -1,0 +1,15 @@
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 20
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    region: default
+    availabilityZones:
+      default: defaultZone
+    serviceUrl:
+      defaultZone: ${EUREKA_URI}
+logging:
+  level:
+    com.optimagrowth: DEBUG
