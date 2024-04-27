@@ -16,6 +16,13 @@ spring:
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
+        - id: config-service
+          uri: lb://config-service
+          predicates:
+          - Path=/api/v1/config/**
+          filters:
+          - RewritePath=/api/(?<path>.*), /$\{path}
+          - RemoveRequestHeader=Cookie, Set-Cookie
 management:
   endpoints:
     web:
