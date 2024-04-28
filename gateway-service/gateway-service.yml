@@ -9,6 +9,7 @@ spring:
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
+          - TokenRelay=
         - id: organization-service
           uri: lb://organization-service
           predicates:
@@ -16,6 +17,7 @@ spring:
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
+          - TokenRelay=
         - id: config-service
           uri: lb://config-service
           predicates:
@@ -23,6 +25,12 @@ spring:
           filters:
           - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
+          - TokenRelay=
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI}
 management:
   endpoints:
     web:
