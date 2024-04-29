@@ -54,3 +54,8 @@ eureka:
 logging:
   level:
     com.optimagrowth: DEBUG
+security:
+  cors:
+    allowedOrigins: http://localhost:4200 # TODO: Only for development. Override this for higher environments
+    allowedMethods: '*'
+    allowedHeaders: '*'
