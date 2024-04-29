@@ -3,6 +3,7 @@ spring:
     gateway:
       default-filters:
       - TokenRelay=
+      - RemoveRequestHeader=Cookie, Set-Cookie
       routes:
       - id: licensing-service
         uri: lb://licensing-service
@@ -10,21 +11,18 @@ spring:
         - Path=/api/v1/license/**
         filters:
         - RewritePath=/api/(?<path>.*), /$\{path}
-        - RemoveRequestHeader=Cookie, Set-Cookie
       - id: organization-service
         uri: lb://organization-service
         predicates:
         - Path=/api/v1/organization/**
         filters:
         - RewritePath=/api/(?<path>.*), /$\{path}
-        - RemoveRequestHeader=Cookie, Set-Cookie
       - id: config-service
         uri: lb://config-service
         predicates:
         - Path=/api/v1/config/**
         filters:
         - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
-        - RemoveRequestHeader=Cookie, Set-Cookie
   security:
     oauth2:
       resourceserver:
