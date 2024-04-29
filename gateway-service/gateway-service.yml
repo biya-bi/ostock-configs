@@ -1,6 +1,8 @@
 spring:
   cloud:
     gateway:
+        default-filters:
+        - TokenRelay=
         routes:
         - id: licensing-service
           uri: lb://licensing-service
@@ -9,7 +11,6 @@ spring:
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
-          - TokenRelay=
         - id: organization-service
           uri: lb://organization-service
           predicates:
@@ -17,7 +18,6 @@ spring:
           filters:
           - RewritePath=/api/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
-          - TokenRelay=
         - id: config-service
           uri: lb://config-service
           predicates:
@@ -25,7 +25,6 @@ spring:
           filters:
           - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
           - RemoveRequestHeader=Cookie, Set-Cookie
-          - TokenRelay=
   security:
     oauth2:
       resourceserver:
