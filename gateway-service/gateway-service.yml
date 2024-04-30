@@ -23,6 +23,13 @@ spring:
         - Path=/api/v1/config/**
         filters:
         - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
+      - id: eureka-service
+        uri: lb://eureka-service
+        predicates:
+        - Path=/dashboard/eureka/**
+        filters:
+        - RewritePath=/dashboard/eureka/(?<path>.*), /$\{path}
+        - RequestHeaderSize=40KB
   security:
     oauth2:
       resourceserver:
