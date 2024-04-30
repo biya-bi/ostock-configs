@@ -1,0 +1,29 @@
+# We could have committed the encrypted sensitive details here, but that means that they will be displayed 
+# in clear when the configurations are queried. This is a problem because not all those who may have the right 
+# to view the configurations will necessarily have rights to view the secrets. For more security, we will read 
+# those secrets from files that have been mounted at container start up. Therefore, the below secrets will not
+# appear in this file, but will be mounted at runtime.
+# - security.oauth2.resourceserver.jwt.issuer-uri
+# - client.registration.keycloak.client-id
+# - spring.security.oauth2.client.registration.keycloak.client-secret
+# - spring.security.oauth2.client.provider.keycloak.issuer-uri
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            authorization-grant-type: authorization_code
+            scope: openid
+        provider:
+          keycloak:
+            user-name-attribute: preferred_username
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 20
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8070/eureka}
