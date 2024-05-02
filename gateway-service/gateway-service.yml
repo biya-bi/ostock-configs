@@ -23,6 +23,12 @@ spring:
         - Path=/api/v1/config/**
         filters:
         - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
+      - id: notification-service
+        uri: lb://notification-service
+        predicates:
+        - Path=/api/v1/notification/**
+        filters:
+        - RewritePath=/api/(?<path>.*), /$\{path}
   security:
     oauth2:
       resourceserver:
