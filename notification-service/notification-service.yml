@@ -56,3 +56,4 @@ notification:
   vapid:
     privateKey: ${VAPID_PRIVATE_KEY}
     publicKey: ${VAPID_PUBLIC_KEY}
+    subject: ${VAPID_SUBJECT}
