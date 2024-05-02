@@ -1,4 +1,7 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
   datasource:
     url: "jdbc:postgresql://postgres/ostock_dev"
     username: "{cipher}d687eb393fb4b5b4d972161c39d28ebd9e340c352155ec3ae0ce23bb9a3186cd"
