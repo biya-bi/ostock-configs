@@ -13,3 +13,9 @@ eureka:
 logging:
   level:
     com.optimagrowth: DEBUG
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true

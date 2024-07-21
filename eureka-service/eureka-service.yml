@@ -14,3 +14,8 @@ eureka:
     expectedClientRenewalIntervalSeconds: 30
     renewalThresholdUpdateIntervalMs: 900000
 
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
