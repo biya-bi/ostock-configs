@@ -63,3 +63,7 @@ security:
     allowedOrigins: http://localhost:4200 # TODO: Only for development. Override this for higher environments
     allowedMethods: '*'
     allowedHeaders: '*'
+ostock:
+  api:
+    authentication:
+      allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
