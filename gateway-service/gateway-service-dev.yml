@@ -1,0 +1,4 @@
+security:
+  cors:
+    allowedOrigins: https://devostockng.nguiland.org
+
