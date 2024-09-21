@@ -5,8 +5,8 @@ spring:
       - TokenRelay=
       - RemoveRequestHeader=Cookie, Set-Cookie
       routes:
-      - id: license-service
-        uri: lb://license-service
+      - id: licensing-service
+        uri: lb://licensing-service
         predicates:
         - Path=/api/v1/license/**
         filters:
@@ -60,7 +60,7 @@ logging:
     com.optimagrowth: DEBUG
 security:
   cors:
-    allowedOrigins: http://localhost:4200 # TODO: Only for development. Override this for higher environments
+    allowedOrigins: http://localhost:4200, http://angular-frontend.ostock/ # TODO: Only for development. Override this for higher environments
     allowedMethods: '*'
     allowedHeaders: '*'
 ostock:
