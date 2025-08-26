@@ -1,0 +1,4 @@
+security:
+  cors:
+    allowedOrigins: https://int-ostockweb.nguiland.org
+
