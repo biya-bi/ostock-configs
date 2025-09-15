@@ -1,4 +1,10 @@
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          google-issuer-uri: ${GOOGLE_JWT_ISSUER_URI}
+          keycloak-issuer-uri: ${KEYCLOAK_JWT_ISSUER_URI}
   jpa:
     hibernate:
       ddl-auto: create
