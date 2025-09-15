@@ -33,7 +33,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${JWT_ISSUER_URI}
+          google-issuer-uri: ${GOOGLE_JWT_ISSUER_URI}
+          keycloak-issuer-uri: ${KEYCLOAK_JWT_ISSUER_URI}
 management:
   endpoints:
     web:
