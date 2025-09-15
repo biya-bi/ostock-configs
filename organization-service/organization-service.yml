@@ -47,7 +47,6 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
         minimumNumberOfCalls: 5
         automaticTransitionFromOpenToHalfOpenEnabled: true
-ostock:
-  api:
-    authentication:
-      allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
+security:
+  authorization:
+    allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness

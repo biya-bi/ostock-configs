@@ -66,7 +66,6 @@ resilience4j:
         waitDuration: 10s
         retry-exceptions:
           - feign.RetryableException
-ostock:
-  api:
-    authentication:
-      allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
+security:
+  authorization:
+    allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness

@@ -64,7 +64,5 @@ security:
     allowedOrigins: http://localhost:4200, http://angular-frontend.ostock/ # TODO: Only for development. Override this for higher environments
     allowedMethods: '*'
     allowedHeaders: '*'
-ostock:
-  api:
-    authentication:
-      allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
+  authorization:
+    allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
