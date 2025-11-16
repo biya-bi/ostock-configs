@@ -2,36 +2,36 @@ spring:
   cloud:
     gateway:
       default-filters:
-      - TokenRelay=
-      - RemoveRequestHeader=Cookie, Set-Cookie
+        - TokenRelay=
+        - RemoveRequestHeader=Cookie, Set-Cookie
       server:
         webflux:
-          trusted-proxies: '.*' # TODO: This is too permissive. Fix this (or override in higher environments) before going to production.
+          trusted-proxies: ".*" # TODO: This is too permissive. Fix this (or override in higher environments) before going to production.
           routes:
-          - id: license-service
-            uri: lb://license-service
-            predicates:
-            - Path=/api/v1/license/**
-            filters:
-            - RewritePath=/api/(?<path>.*), /$\{path}
-          - id: organization-service
-            uri: lb://organization-service
-            predicates:
-            - Path=/api/v1/organization/**
-            filters:
-            - RewritePath=/api/(?<path>.*), /$\{path}
-          - id: config-service
-            uri: lb://config-service
-            predicates:
-            - Path=/api/v1/config/**
-            filters:
-            - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
-          - id: notification-service
-            uri: lb://notification-service
-            predicates:
-            - Path=/api/v1/notification/**
-            filters:
-            - RewritePath=/api/(?<path>.*), /$\{path}
+            - id: license-service
+              uri: lb://license-service
+              predicates:
+                - Path=/api/v1/license/**
+              filters:
+                - RewritePath=/api/(?<path>.*), /$\{path}
+            - id: organization-service
+              uri: lb://organization-service
+              predicates:
+                - Path=/api/v1/organization/**
+              filters:
+                - RewritePath=/api/(?<path>.*), /$\{path}
+            - id: config-service
+              uri: lb://config-service
+              predicates:
+                - Path=/api/v1/config/**
+              filters:
+                - RewritePath=/api/v1/config/(?<path>.*), /$\{path}
+            - id: notification-service
+              uri: lb://notification-service
+              predicates:
+                - Path=/api/v1/notification/**
+              filters:
+                - RewritePath=/api/(?<path>.*), /$\{path}
   security:
     oauth2:
       resourceserver:
@@ -64,7 +64,7 @@ logging:
 security:
   cors:
     allowedOrigins: http://localhost:4200, http://angular-frontend.ostock/ # TODO: Only for development. Override this for higher environments
-    allowedMethods: '*'
-    allowedHeaders: '*'
+    allowedMethods: "*"
+    allowedHeaders: "*"
   authorization:
     allowedEndpoints: /actuator/health/liveness, /actuator/health/readiness
