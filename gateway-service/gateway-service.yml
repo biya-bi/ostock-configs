@@ -6,6 +6,7 @@ spring:
       - RemoveRequestHeader=Cookie, Set-Cookie
       server:
         webflux:
+          trusted-proxies: '.*' # TODO: This is too permissive. Fix this (or override in higher environments) before going to production.
           routes:
           - id: license-service
             uri: lb://license-service
