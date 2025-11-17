@@ -46,9 +46,6 @@ management:
     health:
       probes:
         enabled: true
-      endpoint:
-    gateway:
-      access: read_only
 eureka:
   instance:
     preferIpAddress: true
